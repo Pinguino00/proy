@@ -1,0 +1,247 @@
+def saludo ():
+    nombre = str(input("Inserta tu nombre: "))
+    print(' ')
+    print("Hola " + nombre + " bienvenid@")
+    sesion()
+def sesion ():
+    sesion= str(input("""
+¿Tienes una cuenta?
+
+[1] Sí
+[2] No
+
+Selecciona una opción: """))
+    if sesion == ('1'):
+        password()
+    elif sesion == ('2'):
+        account=str(input("""
+¿Deseas crear una cuenta?
+[1] Sí
+[2] No
+
+selecciona una opción: """))
+        if account==('1'):
+            create()
+        elif account==('2'):
+            baibai()
+        i=0
+    while i>2:
+        print(sesion)
+        i=i-1
+        print("de nuevo")
+        print(i)
+        
+def create ():
+    str(input("ingresa tu nombre de usuario: "))
+    str(input("Ingresa tu contraseña para ingresar al sistema: "))
+    print ("Bienvenid@")
+    continuar= str(input("""
+¿Desea continuar?
+
+[1] Si
+[2] No
+
+
+Seleccione una opción: """))
+    if continuar == ('1'):
+        password()
+    elif continuar == ('2'):
+        baibai()
+            
+def password ():
+    user= str(input("""
+
+[1] Soy administrador
+[2] Soy cliente
+
+Selecciona una opción: """))
+    if user == ('1'):
+        str(input("ingresa tu nombre de usuario: "))
+        str(input("Ingresa tu contraseña para ingresar al sistema: "))
+        print ("Bienvenid@")
+        menu_admin()
+    elif user == ('2'):
+        str(input("ingresa tu nombre de usuario: "))
+        str(input("Ingresa tu contraseña para ingresar al sistema: "))
+        print ("Bienvenid@")
+        menu_cliente()
+        
+    
+def menu_admin ():
+    menu= str(input("""
+    ¿Qué desea hacer?
+    
+    [1] Categorías
+    [2] Ver el inventario completo
+    [3] Buscar un producto
+    [4] Ingresar un producto
+    [5] Retirar un producto/Descontinuar un producto
+    [6] Ver disponibilidad de un producto
+    [7] Salir
+    
+    ingrese un numero del 1 al 7: """))
+    if menu == ('1'):
+        main = str(input("""
+    Categorías
+
+        [1]Guitarras
+        [2]Pianos
+        [3]Bajos
+        [4]Ukuleles
+        [5]Percusiones
+        [6]Regresar
+        
+    Ingrese un número del 1 al 6: """))
+        if main==('1'):
+            with open("guitarras1.txt") as file_object:
+                leer = file_object.read()
+                print(leer)
+            home()
+   
+        elif main==('2'):
+            with open("pianos.txt") as file_object:
+                leer = file_object.read()
+                print(leer)
+            home()
+            
+        elif main==('3'):
+            with open("bajos1.txt") as file_object:
+                leer = file_object.read()
+                print(leer)
+            home()
+                
+        elif main==('4'):
+            with open("ukuleles1.txt") as file_object:
+                leer = file_object.read()
+                print(leer)
+            home()
+        elif main==('5'):
+            with open("percusiones.txt") as file_object:
+                leer = file_object.read()
+                print(leer)
+            home()
+        elif main==('6'):
+            menu_admin()
+            
+    elif menu == ('2'):
+        print("Inventario")
+        with open("inv instrumentos.txt") as file_object:
+            leer = file_object.read()
+            print(leer)
+            home()
+        
+    elif menu == ('3'):
+        buscador()       
+    elif menu == ('4'):
+        str(input("Ingrese la categoria del producto que desea ingresar: "))
+        str(input("Ingrese la marca/fabricante del producto: "))
+        str(input("Ingrese el modelo/nombre del producto: "))
+        str(input("Ingrese el color del producto"))
+        str(input("Ingrese el costo del producto: "))
+        str(input("Ingrese la cantidad que desea ingresar: "))
+#guardar est en listas
+    elif menu == ('5'):
+        main = str(input("""
+    ¿En qué categoría se encuentra tu producto?
+
+        [1]Guitarras
+        [2]Pianos
+        [3]Bajos
+        [4]Ukuleles
+        [5]Percusiones
+        
+    Ingrese un número del 1 al 6: """))
+        if main==('1'):
+            with open("guitarras1.txt") as file_object:
+                leer = file_object.read()
+                print(leer)
+            str(input("""
+¿Qué producto deseas retirar? """))
+            home()
+   
+        elif main==('2'):
+            with open("pianos.txt") as file_object:
+                leer = file_object.read()
+                print(leer)
+            home()
+            
+        elif main==('3'):
+            with open("bajos1.txt") as file_object:
+                leer = file_object.read()
+                print(leer)
+            home()
+                
+        elif main==('4'):
+            with open("ukuleles1.txt") as file_object:
+                leer = file_object.read()
+                print(leer)
+            home()
+        elif main==('5'):
+            with open("percusiones.txt") as file_object:
+                leer = file_object.read()
+                print(leer)
+            home()
+            
+        str(input("Ingrese la categoria del producto que desea retirar: "))
+        str(input("Ingrese la marca/fabricante del producto: "))
+        str(input("Ingrese el modelo/nombre del producto: "))
+        str(input("Ingrese el color del producto"))
+        str(input("Ingrese la cantidad que desea retirar: "))
+    elif menu == ('6'):
+        str(input("Ingrese la categoria del producto que desea consultar: "))
+        str(input("Ingrese la marca/fabricante del producto: "))
+        str(input("Ingrese el modelo/nombre del producto: "))
+        str(input("Ingrese el color del producto"))
+        str(input("Ingrese la cantidad de este producto que desea consultar: "))
+    elif menu==('7'):
+        baibai()
+
+def menu_cliente ():
+    menu= int(input("""
+    ¿Qué desea hacer?
+    
+    [1] Categorías
+    [2] Ver el inventario completo
+    [3] Buscar un producto
+    [4] Hacer una compra 
+    [5] Revisar mi cesta de compra
+    [6] Ver disponibilidad de un producto
+    [7] Salir
+    
+    Ingrese un numero del 1 al 9: """))
+    print('')
+def baibai():
+    print("""
+Ok, ¡hasta luego!☆""")
+    
+def home():
+    accion= str(input("""
+
+
+                                                                          [1] Regresar
+                                                                          [2] Ir a inicio
+                                                                          [3] Salir
+
+                                                                          Selecciona una opción: """))
+    if accion==('1'):
+        menu_admin()
+    elif accion==('2'):
+        create()
+    elif accion==('3'):
+        baibai()
+        
+def buscador():
+    with open("inv instrumentos.txt") as file_object:
+        leer = file_object.read()
+    filtro1 = str(input("""
+¿En qué categoría se encuentra  tu producto?
+
+        [1]Guitarras
+        [2]Pianos
+        [3]Bajos
+        [4]Ukuleles
+        [5]Percusiones
+        
+    Ingrese un número del 1 al 5: """))
+    
+saludo()
